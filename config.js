@@ -77,8 +77,8 @@ const CONFIG = {
     // Add your own music URL after getting proper licenses
     music: {
         enabled: true,                     // Music feature is enabled
-        autoplay: true,                    // Try to autoplay (note: some browsers may block this)
-        musicUrl: "https://www.youtube.com/watch?v=Dml0JEgRpc0&list=RDDml0JEgRpc0&start_radio=1", // Music streaming URL
+        autoplay: false,                   // Try to autoplay (note: some browsers may block this)
+        musicUrl: "https://www.yt-download.org/api/button/mp3/Dml0JEgRpc0", // Music streaming URL (MP3 format)
         startText: "🎵 Play Music",        // Button text to start music
         stopText: "🔇 Stop Music",         // Button text to stop music
         volume: 0.5                        // Volume level (0.0 to 1.0)
