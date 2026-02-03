@@ -175,17 +175,73 @@ window.addEventListener('load', setInitialPosition);
 
 // Celebration function
 function celebrate() {
+    // Hide all questions
     document.querySelectorAll('.question-section').forEach(q => q.classList.add('hidden'));
-    const celebration = document.getElementById('celebration');
-    celebration.classList.remove('hidden');
+    document.querySelector('.container').classList.add('hidden');
+    
+    // Show fullscreen celebration
+    const fullscreenCelebration = document.getElementById('fullscreenCelebration');
+    fullscreenCelebration.classList.remove('hidden');
     
     // Set celebration messages
-    document.getElementById('celebrationTitle').textContent = config.celebration.title;
-    document.getElementById('celebrationMessage').textContent = config.celebration.message;
-    document.getElementById('celebrationEmojis').textContent = config.celebration.emojis;
+    document.getElementById('celebrationHeading').textContent = config.celebration.title;
+    document.getElementById('celebrationSubtext').textContent = config.celebration.message;
     
-    // Create heart explosion effect
-    createHeartExplosion();
+    // Create continuous love particles
+    createLoveParticles();
+}
+
+// Create love particle burst animation
+function createLoveParticles() {
+    const container = document.querySelector('.love-animation-container');
+    const emojis = config.floatingEmojis.hearts;
+    
+    // Initial burst
+    for (let i = 0; i < 80; i++) {
+        createParticle(container, emojis);
+    }
+    
+    // Continue creating particles
+    setInterval(() => {
+        for (let i = 0; i < 5; i++) {
+            createParticle(container, emojis);
+        }
+    }, 400);
+}
+
+// Helper function to create individual particle
+function createParticle(container, emojis) {
+    const particle = document.createElement('div');
+    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    particle.className = 'love-particle';
+    particle.textContent = randomEmoji;
+    
+    // Random starting position
+    const startX = Math.random() * window.innerWidth;
+    const startY = window.innerHeight + 50;
+    
+    particle.style.left = startX + 'px';
+    particle.style.top = startY + 'px';
+    
+    // Random burst direction
+    const angle = (Math.random() * Math.PI * 2);
+    const velocity = 100 + Math.random() * 300;
+    const tx = Math.cos(angle) * velocity;
+    const ty = -Math.sin(angle) * velocity - (Math.random() * 200);
+    
+    particle.style.setProperty('--tx', tx + 'px');
+    particle.style.setProperty('--ty', ty + 'px');
+    
+    container.appendChild(particle);
+    
+    // Remove particle after animation
+    setTimeout(() => particle.remove(), 3000);
+}
+
+// Reset animation and go back
+function resetAnimation() {
+    location.reload();
 }
 
 // Create heart explosion animation
