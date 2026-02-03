@@ -315,4 +315,278 @@ h2 {
 .music-btn:hover {
     transform: scale(1.05);
     background: var(--secondary-color);
+}
+
+/* ========================================
+   MOBILE RESPONSIVE DESIGN
+   ======================================== */
+
+/* Extra small devices (phones in portrait, 320px and up) */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 1.5rem;
+        margin: 10px;
+        border-radius: 15px;
+        max-width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .cute-btn {
+        padding: 8px 16px;
+        margin: 8px 5px;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+
+    .cute-btn:active {
+        transform: scale(0.95);
+    }
+
+    .question-section {
+        padding: 0.5rem 0;
+    }
+
+    .love-meter {
+        margin: 15px auto;
+        padding: 8px 0;
+    }
+
+    .love-meter p {
+        font-size: 1rem;
+        margin: 10px 0;
+        gap: 5px;
+    }
+
+    .slider {
+        height: 20px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+        margin-top: -5px;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+    }
+
+    #loveValue {
+        font-size: 1.1em;
+    }
+
+    .celebration-text {
+        font-size: 2em;
+        margin: 20px 0;
+    }
+
+    .celebration {
+        padding: 1rem;
+    }
+
+    .secret-answer {
+        bottom: 10px;
+        right: 10px;
+        transform: scale(0.6);
+    }
+
+    .secret-answer .cute-btn {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    .music-controls {
+        top: 10px;
+        right: 10px;
+    }
+
+    .music-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 15px;
+    }
+
+    .heart, .bear {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small devices (landscape phones, 480px and up) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 1.8rem;
+        margin: 15px;
+        max-width: 90vw;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .cute-btn {
+        padding: 9px 18px;
+        margin: 9px 6px;
+        font-size: 1rem;
+    }
+
+    .question-section {
+        padding: 0.8rem 0;
+    }
+
+    .love-meter p {
+        font-size: 1.1em;
+        margin: 12px 0;
+    }
+
+    .celebration-text {
+        font-size: 2.2em;
+        margin: 25px 0;
+    }
+
+    .music-controls {
+        top: 15px;
+        right: 15px;
+    }
+
+    .music-btn {
+        padding: 9px 15px;
+        font-size: 15px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 769px) {
+    .container {
+        max-width: 600px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .cute-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 24px;
+    }
+
+    .cute-btn:active {
+        transform: scale(0.95);
+        background: var(--button-hover);
+    }
+
+    .slider {
+        height: 30px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 40px;
+        height: 40px;
+        margin-top: -5px;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 40px;
+        height: 40px;
+    }
+
+    .music-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* iPhone specific (including notch considerations) */
+@media (max-width: 414px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    .container {
+        margin: 10px auto;
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    .music-controls {
+        top: max(10px, env(safe-area-inset-top));
+        right: max(10px, env(safe-area-inset-right));
+    }
+
+    .secret-answer {
+        bottom: max(10px, env(safe-area-inset-bottom));
+        right: max(10px, env(safe-area-inset-right));
+    }
+}
+
+/* Large phones */
+@media (min-width: 415px) and (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        padding: 1rem;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    h1 {
+        margin-bottom: 0.8rem;
+    }
+
+    .cute-btn {
+        padding: 7px 14px;
+        margin: 6px 4px;
+        font-size: 0.9rem;
+    }
+
+    .celebration-text {
+        font-size: 1.5em;
+        margin: 15px 0;
+    }
+
+    .music-controls {
+        top: 8px;
+        right: 8px;
+    }
+}
+
+/* Ensure floating elements don't interfere on mobile */
+@media (max-width: 768px) {
+    .floating-elements {
+        z-index: 0;
+    }
+
+    .heart, .bear {
+        font-size: 1.8rem;
+        opacity: 0.6;
+    }
 } 
