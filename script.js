@@ -177,62 +177,18 @@ window.addEventListener('load', setInitialPosition);
 function celebrate() {
     // Hide all questions
     document.querySelectorAll('.question-section').forEach(q => q.classList.add('hidden'));
-    document.querySelector('.container').classList.add('hidden');
-    
-    // Show fullscreen celebration
-    const fullscreenCelebration = document.getElementById('fullscreenCelebration');
-    fullscreenCelebration.classList.remove('hidden');
-    
-    // Set celebration messages
-    document.getElementById('celebrationHeading').textContent = "Yes, I love you! 💕";
-    document.getElementById('celebrationSubtext').textContent = "Forever yours...";
-    
-    // Create balloon animation
-    createBalloons();
-}
 
-// Create balloon animation
-function createBalloons() {
-    const container = document.querySelector('.love-animation-container');
-    const balloonEmojis = ['🎈', '🎉', '🎊', '💕', '🎁'];
-    
-    // Create initial balloons
-    for (let i = 0; i < 30; i++) {
-        createBalloon(container, balloonEmojis);
-    }
-    
-    // Continue creating balloons
-    setInterval(() => {
-        for (let i = 0; i < 3; i++) {
-            createBalloon(container, balloonEmojis);
-        }
-    }, 600);
-}
+    // Show the original celebration element
+    const celebration = document.getElementById('celebration');
+    celebration.classList.remove('hidden');
 
-// Helper function to create individual balloon
-function createBalloon(container, emojis) {
-    const balloon = document.createElement('div');
-    const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-    
-    balloon.className = 'balloon';
-    balloon.textContent = randomEmoji;
-    
-    // Random starting position at bottom
-    const startX = Math.random() * window.innerWidth;
-    const startY = window.innerHeight;
-    
-    balloon.style.left = startX + 'px';
-    balloon.style.top = startY + 'px';
-    
-    // Random floating offset
-    const floatX = (Math.random() - 0.5) * 200;
-    
-    balloon.style.setProperty('--float-x', floatX + 'px');
-    
-    container.appendChild(balloon);
-    
-    // Remove balloon after animation
-    setTimeout(() => balloon.remove(), 5000);
+    // Set celebration messages (simple "I love you")
+    document.getElementById('celebrationTitle').textContent = "I love you";
+    document.getElementById('celebrationMessage').textContent = config.celebration.message || "";
+    document.getElementById('celebrationEmojis').textContent = config.celebration.emojis || "";
+
+    // Create heart explosion effect (keeps original heart animation)
+    createHeartExplosion();
 }
 
 // Create heart explosion animation
