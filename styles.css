@@ -682,21 +682,22 @@ h2 {
     }
 }
 
-.reset-btn {
-    position: relative;
-    z-index: 20;
-    margin-top: 2rem;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    background: white;
-    color: var(--button-color);
-    font-weight: bold;
-    transition: all 0.3s ease;
+.balloon {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: balloon-float 5s ease-in forwards;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
-.reset-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
+@keyframes balloon-float {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) translateX(var(--float-x)) scale(1);
+        opacity: 0;
+    }
 }
 
 /* Mobile celebration adjustments */
